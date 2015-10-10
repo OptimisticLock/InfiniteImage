@@ -1,4 +1,4 @@
-// TODO not DRY, but OK for now because palette will be refactored away soon
+// TODO not DRY, but OK for n20,20 40,40 60,0 80,120 120,140 200,180 20, 20ow because palette will be refactored away soon
 
 var count = 0;
 
@@ -6,6 +6,12 @@ var count = 0;
 Session.setDefault('counter', 0);
 
 var isMousedown = false;
+
+Template.polyline.helpers({
+    points: function() {
+        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
+    }
+});
 
 Template.canvass.events({
     'click button': function () {
