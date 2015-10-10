@@ -1,3 +1,5 @@
+// TODO not DRY, but OK for now because palette will be refactored away soon
+
 var count = 0;
 
 // counter starts at 0
@@ -5,7 +7,7 @@ Session.setDefault('counter', 0);
 
 var isMousedown = false;
 
-Template.palette.events({
+Template.canvass.events({
     'click button': function () {
         // increment the counter when button is clicked
         Session.set('counter', Session.get('counter') + 1);
