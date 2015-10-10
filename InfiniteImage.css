@@ -6,3 +6,9 @@
 #zcanvass {
     background: green;
 }
+
+#palette {
+    background: darkgreen;
+    height: 100px;
+    width: 1000px;
+}
