@@ -10,7 +10,7 @@
 <template name="imageEditor">
     <div id="imageEditor">
         {{> canvass }}
-        {{> palette }}
+        {{> oldCanvass }}
     </div>
 </template>
 
@@ -25,8 +25,8 @@
     </div>
 </template>
 
-<template name="palette">
-    <div id="palette">
+<template name="oldCanvass">
+    <div id="oldCanvass">
         <svg width="1000" height="600" style="background:blue">
             <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/>
             <circle id="circle2" visibility="visible" cx="100" cy="70" r="10" stroke="blue" stroke-width="4"

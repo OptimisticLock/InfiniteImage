@@ -5,7 +5,7 @@ Session.setDefault('counter', 0);
 
 var isMousedown = false;
 
-Template.palette.events({
+Template.oldCanvass.events({
     'click button': function () {
         // increment the counter when button is clicked
         Session.set('counter', Session.get('counter') + 1);
