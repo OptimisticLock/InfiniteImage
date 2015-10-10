@@ -12,6 +12,10 @@ Template.polyline.helpers({
     points: function() {
         return Session.get("polyline");
 //        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
+    },
+
+    tentative: function() {
+        return {x1 : 300, y1: 0, x2: 400, y2: 200};
     }
 });
 
