@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+#zpalette {
+    background: red;
+}
+
+#zcanvass {
+    background: green;
+}
