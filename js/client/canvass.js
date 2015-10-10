@@ -6,6 +6,8 @@ var count = 0;
 Session.setDefault('counter', 0);
 Session.setDefault('polyline', "");
 
+
+
 var isMousedown = false;
 
 Template.polyline.helpers({
@@ -15,7 +17,9 @@ Template.polyline.helpers({
     },
 
     tentative: function() {
-        return {x1 : 300, y1: 0, x2: 400, y2: 200};
+        var last = Session.get("last");
+        var current = Session.get("current");
+        return {x1 : last.x, y1: last.y, x2: current.x, y2: current.y};
     }
 });
 
@@ -40,20 +44,20 @@ Template.canvass.events({
         var polyline = Session.get("polyline");
         polyline = polyline + " " + x + "," + y;
         Session.set("polyline", polyline);
+        Session.set("last", {x: x, y: y});
         console.log("polyline: " + polyline);
     },
 
-    'mousemove svg >': function (event, template) {
+    'mousemove': function (event, template) {
         console.log("mousedrag!!!", event, template);
         if (isMousedown) {
             count++;
             console.log("mousedrag!!!!!!!", event, template);
-            var x = event.offsetX;
-            var y = event.offsetY;
+
             console.log(x, y);
             //             var circle2 = document.getElementById("circle2");
             var node = event.target;
-            var clone = node.cloneNode(true);
+     /*       var clone = node.cloneNode(true);
             clone.setAttribute("x", x);
             clone.setAttribute("y", y);
             clone.setAttribute("cx", x);
@@ -61,7 +65,12 @@ Template.canvass.events({
             var x = clone.getAttribute("x");
             console.log("Count:" + count);
 
-            node.parentNode.appendChild(clone);
+            node.parentNode.appendChild(clone); */
+        }
+        else {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            Session.set("current", {x: x, y: y});
         }
     }
 });
