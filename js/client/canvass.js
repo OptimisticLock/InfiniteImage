@@ -10,7 +10,8 @@ var isMousedown = false;
 
 Template.polyline.helpers({
     points: function() {
-        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
+        return Session.get("polyline");
+//        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
     }
 });
 
@@ -32,10 +33,10 @@ Template.canvass.events({
         console.log("mousedown!!!!!!!");
         var x = event.offsetX;
         var y = event.offsetY;
-        var polyline = Session.get("Polyline");
+        var polyline = Session.get("polyline");
         polyline = polyline + " " + x + "," + y;
         Session.set("polyline", polyline);
-        console.log("Polyline: " + polyline);
+        console.log("polyline: " + polyline);
     },
 
     'mousemove svg >': function (event, template) {
