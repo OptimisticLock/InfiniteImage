@@ -4,6 +4,7 @@ var count = 0;
 
 // counter starts at 0
 Session.setDefault('counter', 0);
+Session.setDefault('polyline', "");
 
 var isMousedown = false;
 
@@ -13,6 +14,8 @@ Template.polyline.helpers({
     }
 });
 
+
+
 Template.canvass.events({
     'click button': function () {
         // increment the counter when button is clicked
@@ -21,19 +24,25 @@ Template.canvass.events({
 
     'mouseup': function () {
         isMousedown = false;
-        console.log("mouseup");
+        console.log("mouseup!!!!!!");
     },
 
     'mousedown': function () {
         isMousedown = true;
-        console.log("mousedown");
+        console.log("mousedown!!!!!!!");
+        var x = event.offsetX;
+        var y = event.offsetY;
+        var polyline = Session.get("Polyline");
+        polyline = polyline + " " + x + "," + y;
+        Session.set("polyline", polyline);
+        console.log("Polyline: " + polyline);
     },
 
     'mousemove svg >': function (event, template) {
-        console.log("mousedrag", event, template);
+        console.log("mousedrag!!!", event, template);
         if (isMousedown) {
             count++;
-            console.log("mousedrag", event, template);
+            console.log("mousedrag!!!!!!!", event, template);
             var x = event.offsetX;
             var y = event.offsetY;
             console.log(x, y);
