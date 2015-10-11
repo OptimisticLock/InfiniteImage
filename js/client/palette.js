@@ -1,6 +1,8 @@
 // TODO there should be plugin architecture allowing for 3rd party packages for specific tools
 
 Template.palette.onRendered(function () {
+    Session.set('currentTool', 'Pencil');
+
     $('.demo2').colorpicker({
         // inline: true,
     });
@@ -12,7 +14,7 @@ Template.palette.onRendered(function () {
 
     Session.set('colorChoice', 'black')
 
-    $('#toolPencil').click();
+   // $('#toolPencil').click();
 })
 
 Template.palette.events({
