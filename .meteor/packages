@@ -21,4 +21,3 @@ insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 reactive-var
 aliencorp:colorbox
-risul:bootstrap-colorpicker
