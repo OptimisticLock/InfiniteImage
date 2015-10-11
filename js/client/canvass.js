@@ -47,5 +47,15 @@ Template.canvass.events({
 Template.canvass.helpers({
   items: function() {
     return SVGCommands.find({}, {sort: {order: 1}});
+  },
+  isPolyline: function(){
+    if(this.elem === 'polyline') {
+      return true;
+    }
+  },
+  isElipse: function() {
+    if(this.elem === 'circle'){
+      return true;
+    }
   }
 })
