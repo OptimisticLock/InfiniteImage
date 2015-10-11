@@ -20,12 +20,12 @@
     width: 10em;
 }
 
-.tool .glyphicon {
+.glyphicon {
     font-size: 4em;
 }
 
 .toolLabel {
-    font-size: 2em;
+    font-size: 1em;
 }
 
 .colorPaletteItem {
