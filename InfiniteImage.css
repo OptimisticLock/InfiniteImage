@@ -28,3 +28,9 @@
     font-size: 2em;
 }
 
+.colorPaletteItem {
+    padding:1em 2em;
+    margin:3px;
+    color: aqua;
+    border: solid black 1px;
+}

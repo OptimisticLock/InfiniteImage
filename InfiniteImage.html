@@ -10,7 +10,6 @@
 <template name="imageEditor">
     <div id="imageEditor">
         {{> palette }}
-        {{> colorPalette}}
         Click a few times here:
         {{>canvass}}
     </div>
@@ -64,6 +63,8 @@
             <div class="glyphicon glyphicon-erase"></div>
             <div class="toolLabel">Clear All</div>
         </button>
+
+        {{> colorPalette}}
     </div>
 
 
