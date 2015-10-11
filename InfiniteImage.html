@@ -20,7 +20,7 @@
 <template name="palette">
     <div id="palette btn-group">
 
-        <button id="toolPencil" class="btn btn-default tool">
+        <!-- button id="toolPencil" class="btn btn-default tool">
             <div class="glyphicon glyphicon-pencil"></div>
             <div class="toolLabel">Pencil</div>
         </button>
@@ -35,24 +35,25 @@
                 <circle cx="20" cy="20" r="20" fill="currentColor"/>
             </svg>
             <div class="toolLabel">Ellipse</div>
-        </button>
+        </button -->
 
         <button id="toolColorPicker" class="btn btn-default tool">
-          <div class='demo2' style="height:100px;width:100px;background-color:{{activeColor}}">
-          </div>
+            <div class='demo2' style="height:100px;width:100px;background-color:{{activeColor}}">
+            </div>
         </button>
 
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Lines
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#" class='lineWidthChoice' linewidth='2'>Thin</a></li>
-            <li><a href="#" class='lineWidthChoice' linewidth='4'>Medium</a></li>
-            <li><a href="#" class='lineWidthChoice' linewidth='8'>Thick</a></li>
-            <li><a href="#" class='lineWidthChoice' linewidth='16'>XL</a></li>
-          </ul>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                Size
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#" class='lineWidthChoice' linewidth='2'>Thin</a></li>
+                <li><a href="#" class='lineWidthChoice' linewidth='4'>Medium</a></li>
+                <li><a href="#" class='lineWidthChoice' linewidth='8'>Thick</a></li>
+                <li><a href="#" class='lineWidthChoice' linewidth='16'>XL</a></li>
+            </ul>
         </div>
 
         <button id="clearBoard" class="btn btn-default tool">
@@ -68,18 +69,18 @@
     <div id="canvass">
         <svg width="1000" height="600" style='position:relative;z-index:1'>
 
-          {{#each items}}
-            {{#if isPolyline}}
-                <polyline points="{{svgPoints}}" style="{{style}}"/>
-            {{/if}}
+            {{#each items}}
+                {{#if isPolyline}}
+                    <polyline points="{{svgPoints}}" style="{{style}}"/>
+                {{/if}}
 
-            {{#if isEllipse}}
-                <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
-            {{/if}}
+                {{#if isEllipse}}
+                    <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
+                {{/if}}
 
-          {{/each}}
-          {{> polyline }}
-          {{> pencil}}
+            {{/each}}
+            {{> polyline }}
+            {{> pencil}}
         </svg>
     </div>
 </template>
@@ -92,6 +93,6 @@
 </template>
 
 <template name='pencil'>
-  <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:{{activeLineWidth}}" />
+    <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:{{activeLineWidth}}"/>
 </template>
 
