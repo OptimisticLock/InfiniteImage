@@ -22,7 +22,7 @@
 <template name="palette">
     <div id="palette btn-group">
 
-        <button id="toolPencil" class="btn btn-default tool">
+        <button id="toolPencil" class="btn btn-default tool active">
             <div class="glyphicon glyphicon-pencil"></div>
             <div class="toolLabel">Pencil</div>
         </button>
@@ -69,3 +69,4 @@
   {{/each}}
   <polyline points="{{currentLine}}" style="fill:none;stroke:black;stroke-width:3" />
 </template>
+

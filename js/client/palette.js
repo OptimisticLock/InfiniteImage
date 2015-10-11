@@ -12,8 +12,8 @@ Template.palette.events({
         Session.set('currentTool', 'Pencil');
     },
 
-    'click #toolEclilpse': function (event, template) {
-        console.log ("22222222222");
+    'click #toolEllipse': function (event, template) {
+        console.log ("333333333");
         Session.set('currentTool', 'Ellipse');
     },
 });
