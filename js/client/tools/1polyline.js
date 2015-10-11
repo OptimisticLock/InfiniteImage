@@ -1,4 +1,3 @@
-Tools = {}; // TODO
 
 Tools.Polyline = {
   toolSelected: function(canvass) {

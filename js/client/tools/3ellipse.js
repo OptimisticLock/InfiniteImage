@@ -1,6 +1,5 @@
-Tools = {}; // TODO
 
-Tools.Polyline = {
+Tools.Ellipse = {
   toolSelected: function(canvass) {
     canvass.style.cursor="crosshair";
   },
