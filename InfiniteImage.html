@@ -22,16 +22,21 @@
 <template name="palette">
     <div id="palette">
 
-        <button class="btn btn-default tool" id="toolPencil">
-            Pencil
+        <button id="toolPencil" class="btn btn-default tool ">
+            <div class="glyphicon glyphicon-pencil"></div>
+            <div class="toolLabel">Pencil</div>
         </button>
 
         <button id="toolPolyline" class="btn btn-default tool">
-            Polyline
+            <div class="glyphicon glyphicon-send"></div>
+            <div class="toolLabel">Polygon</div>
         </button>
 
         <button id="toolEllipse" class="btn btn-default tool">
-            Ellipse
+            <svg width="4em" height="4em">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/>
+            </svg>
+            <div class="toolLabel">Polygon</div>
         </button>
     </div>
 </template>

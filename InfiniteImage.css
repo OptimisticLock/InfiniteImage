@@ -9,14 +9,22 @@
 
 #palette {
     background: gray;
-    height: 6em;
+    height: 9em;
     width: 1000px;
     padding: 0px;
 }
 
 .tool {
     background: darkgray;
-    padding: 1em;
-    padding-top: 0px;
-    margin: 2em;
+    margin:.2em;
+    width: 10em;
 }
+
+.tool .glyphicon {
+    font-size: 4em;
+}
+
+.toolLabel {
+    font-size: 2em;
+}
+
