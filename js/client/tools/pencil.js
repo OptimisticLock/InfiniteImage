@@ -19,21 +19,26 @@ Tools.Pencil = {
         _aPl.push(Session.get('pencil-current'));
         allPencilLines.set(_aPl);
 
-
-        SVGCommands.insert({
-            tool: 'Pencil',
-            elem: 'polyline',
-            svgPoints: Session.get('pencil-current'),
-            style: 'fill:none;stroke:' + Session.get('colorChoice') + ';stroke-width:' + Session.get('currentLineWidth'),
-            order: SVGCommands.find().count() + 1,
-        });
-
         Session.set('pencil-current', null);
+        // Session.set('currentDrawing', null);
     },
 
     mouseDown: function (event, template) {
         // console.log("Pencil mouse down");
         Session.set('isMousedown', true);
+
+
+        SVGCommands.insert({
+
+            tool: 'Pencil',
+            elem: 'polyline',
+            // svgPoints: Session.get('pencil-current'),
+            style: 'fill:none;stroke:' + Session.get('colorChoice') + ';stroke-width:' + Session.get('currentLineWidth'),
+            order: SVGCommands.find().count() + 1,
+        }, function(error, result) {
+          Session.set('currentDrawing', result);
+
+        });
     },
 
     mouseMoved: function (event, template) {
@@ -61,6 +66,10 @@ Tools.Pencil = {
         }
 
         Session.set('pencil-current', Session.get('pencil-current') + " " + moveX + ',' + moveY);
+
+        SVGCommands.update({_id: Session.get('currentDrawing')}, {$set: {
+          svgPoints: Session.get('pencil-current')
+        }});
     }
 };
 
