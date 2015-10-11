@@ -34,6 +34,11 @@ Template.canvass.events({
     if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
       event.moveX = event.originalEvent.touches[0].pageX;
       event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+      event.touchType = 'single'
+    } else if (event.type === 'touchmove' && event.originalEvent.touches.length === > 1) {
+      event.moveX = event.originalEvent.touches[0].pageX;
+      event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+      event.touchType = 'multi'
     } else {
       event.moveX = event.offsetX;
       event.moveY = event.offsetY;
