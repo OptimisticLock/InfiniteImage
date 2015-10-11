@@ -5,6 +5,13 @@ var isMousedown = false;
 Template.canvass.onCreated(function () {
     var ctx = this;
 
+    var cv = getUrlParameter('cv');
+    console.log('cv', cv);
+
+    if(cv) {
+      Session.set('CV', cv);
+    }
+
     Session.set('currentTool', 'Pencil')
 
     this.autorun(function () {
@@ -56,7 +63,7 @@ Template.canvass.events({
 
 Template.canvass.helpers({
     items: function () {
-        return SVGCommands.find({}, {sort: {order: 1}});
+        return SVGCommands.find({CV: Session.get('CV')}, {sort: {order: 1}});
     },
     isPolyline: function () {
         if (this.elem === 'polyline') {
@@ -69,4 +76,19 @@ Template.canvass.helpers({
             return true;
         }
     }
-})
+});
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};

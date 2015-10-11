@@ -29,7 +29,7 @@ Tools.Pencil = {
 
 
         SVGCommands.insert({
-
+            CV: Session.get('CV'),
             tool: 'Pencil',
             elem: 'polyline',
             // svgPoints: Session.get('pencil-current'),
@@ -81,7 +81,8 @@ Template.pencil.onCreated(function () {
 Template.pencil.helpers({
     allPencilLines: function () {
         return SVGCommands.find({
-            'tool': 'Pencil'
+            'tool': 'Pencil',
+            'CV': Session.get('CV'),
         });
     },
     points: function () {
