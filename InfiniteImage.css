@@ -9,6 +9,13 @@
 
 #palette {
     background: darkgreen;
-    height: 100px;
+    height: 2em;
     width: 1000px;
+    padding: 2em;
+}
+
+.tool {
+    background: green;
+    padding: 1em;
+    margin: 2em;
 }
