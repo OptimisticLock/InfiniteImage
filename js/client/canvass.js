@@ -14,19 +14,27 @@ Template.canvass.onCreated(function() {
 
 Template.canvass.events({
 
-  'mouseup': function (event, template) {
+  'mouseup, touchend': function (event, template) {
+    // event.preventDefault();
+
     isMousedown = false;
     console.log("mouseup!!!!!!");
     template.CurrentTool.mouseUp(event, template);
   },
 
-  'mousedown': function (event, template) {
+  'mousedown, touchstart': function (event, template) {
+    // event.preventDefault();
+
     isMousedown = true;
     console.log("mousedown!!!!!!!");
     template.CurrentTool.mouseDown(event, template);
+
+
   },
 
-  'mousemove': function (event, template) {
+  'mousemove, touchmove': function (event, template) {
+    // event.preventDefault();
+
     if (isMousedown) {
       template.CurrentTool.mouseDragged(event, template);
     }
