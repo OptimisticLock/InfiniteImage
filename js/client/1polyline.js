@@ -1,4 +1,4 @@
-Tools = Tools || {};
+Tools = {}; // TODO
 
 Tools.Polyline = {
     toolSelected: function(canvass) {
@@ -25,4 +25,5 @@ Tools.Polyline = {
         console.log("Polyline mouse dragged");
     }
 };
+
 

@@ -1,4 +1,4 @@
-Tools = {};
+
 Tools.CurrentTool = Tools.Polyline;
 
 
@@ -32,7 +32,7 @@ Template.canvass.events({
     'mouseup': function (event, template) {
         isMousedown = false;
         console.log("mouseup!!!!!!");
-        Tools.currentTool.mouseUp(event, template);
+        Tools.CurrentTool.mouseUp(event, template);
     },
 
     'mousedown': function (event, template) {
