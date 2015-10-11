@@ -42,15 +42,22 @@ Tools.Pencil = {
   },
 
   mouseDragged: function(event, template) {
+    var moveX, moveY;
 
-    if(!Session.get('pencil-current')) {
-      Session.set('pencil-current', event.offsetX + ',' + event.offsetY);
+    if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
+      event.preventDefault();
+      moveX = event.originalEvent.touches[0].pageX;
+      moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+    } else {
+      moveX = event.offsetX;
+      moveY = event.offsetY;
     }
 
-    Session.set('pencil-current', Session.get('pencil-current') + " " + event.offsetX + ',' + event.offsetY);
-  },
-  allPencilLines: function() {
+    if(!Session.get('pencil-current')) {
+      Session.set('pencil-current', moveX + ',' + moveY);
+    }
 
+    Session.set('pencil-current', Session.get('pencil-current') + " " + moveX + ',' + moveY);
   }
 };
 
