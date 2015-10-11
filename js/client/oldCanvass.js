@@ -10,29 +10,9 @@ Session.setDefault('counter', 0);
 //Session.setDefault('polyline', "");
 
 
-
 var isMousedown = false;
 
-Template.polyline.helpers({
-    points: function() {
-        return Session.get("polyline");
-//        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
-    },
-
-    tentative: function() {
-        var last = Session.get("last");
-        var current = Session.get("current");
-        return {x1 : last.x, y1: last.y, x2: current.x, y2: current.y};
-    }
-});
-
-
-
 Template.oldCanvass.events({
-    'click button': function () {
-        // increment the counter when button is clicked
-        Session.set('counter', Session.get('counter') + 1);
-    },
 
     'mouseup': function () {
         isMousedown = false;
