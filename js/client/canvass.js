@@ -5,8 +5,10 @@ var isMousedown = false;
 Template.canvass.onCreated(function () {
     var ctx = this;
 
+    Session.set('currentTool', 'Pencil')
+
     this.autorun(function () {
-        console.log(Session.get('currentTool'))
+        // console.log(Session.get('currentTool'))
         ctx.CurrentTool = Tools[Session.get('currentTool')];
     });
 })

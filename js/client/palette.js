@@ -10,7 +10,8 @@ Template.palette.onRendered(function () {
         Session.set('colorChoice', event.color.toHex());
     });
 
-    Session.set('colorChoice', 'black')
+    Session.set('colorChoice', 'black');
+    Session.set('currentLineWidth', 2);
 
     $('#toolPencil').click();
 })
