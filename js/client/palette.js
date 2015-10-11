@@ -49,7 +49,15 @@ Template.palette.events({
       console.log($(elem).attr('linewidth'))
 
       Session.set('currentLineWidth', $(elem).attr('linewidth'));
-    }
+    },
+
+    "click #plus": function() {
+        console.log("click+");
+    },
+
+    "click #minus": function() {
+        console.log("click-");
+    },
 
 });
 

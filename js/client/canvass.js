@@ -78,7 +78,8 @@ Template.canvass.helpers({
         if (this.elem === 'ellipse') {
             return true;
         }
-    }
+    },
+
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
