@@ -28,14 +28,16 @@ Template.canvass.events({
 
   'mousemove': function (event, template) {
     if (isMousedown) {
-      // count++;
       template.CurrentTool.mouseDragged(event, template);
-      // console.log("mousedrag!!!!!!!" + count);
-
     }
     else {
-      // console.log("mousemove!!!", template);
       template.CurrentTool.mouseMoved(event, template);
     }
   }
 });
+
+Template.canvass.helpers({
+  items: function() {
+    return SVGCommands.find({}, {sort: {order: 1}});
+  }
+})

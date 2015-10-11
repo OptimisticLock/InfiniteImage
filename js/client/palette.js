@@ -11,6 +11,8 @@ Template.palette.onRendered(function() {
   });
 
   Session.set('colorChoice', 'black')
+
+  $('#toolPencil').click();
 })
 
 Template.palette.events({
@@ -32,6 +34,12 @@ Template.palette.events({
 
     'click .demo2': function(e,t) {
       $('.demo2').colorpicker('show');
+    },
+
+    'click #clearBoard': function(e,t) {
+      SVGCommands.find().forEach(function(cmd) {
+        SVGCommands.remove({_id: cmd._id});
+      })
     }
 
 });
