@@ -30,6 +30,7 @@ Template.canvass.events({
 
     'mousemove, touchmove': function (event, template) {
 
+<<<<<<< HEAD
         if (event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
             event.moveX = event.originalEvent.touches[0].pageX;
             event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
@@ -44,6 +45,20 @@ Template.canvass.events({
             event.moveX = event.offsetX;
             event.moveY = event.offsetY;
         }
+=======
+    if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
+      event.moveX = event.originalEvent.touches[0].pageX;
+      event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+      event.touchType = 'single'
+    } else if (event.type === 'touchmove' && event.originalEvent.touches.length > 1) {
+      event.moveX = event.originalEvent.touches[0].pageX;
+      event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+      event.touchType = 'multi'
+    } else {
+      event.moveX = event.offsetX;
+      event.moveY = event.offsetY;
+    }
+>>>>>>> add line width
 
         if (isMousedown) {
             template.CurrentTool.mouseDragged(event, template);

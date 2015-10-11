@@ -42,6 +42,19 @@
           </div>
         </button>
 
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lines
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" class='lineWidthChoice' linewidth='2'>Thin</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='4'>Medium</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='8'>Thick</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='16'>XL</a></li>
+          </ul>
+        </div>
+
         <button id="clearBoard" class="btn btn-default tool">
             <div class="glyphicon glyphicon-erase"></div>
             <div class="toolLabel">Clear All</div>
@@ -53,7 +66,7 @@
 
 <template name="canvass">
     <div id="canvass">
-        <svg width="1000" height="600" style='position:relative;z-index:1000'>
+        <svg width="1000" height="600" style='position:relative;z-index:1'>
 
           {{#each items}}
             {{#if isPolyline}}
@@ -79,6 +92,6 @@
 </template>
 
 <template name='pencil'>
-  <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:3" />
+  <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:{{activeLineWidth}}" />
 </template>
 
