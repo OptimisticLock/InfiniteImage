@@ -73,7 +73,7 @@
 <template name="canvass">
     <div id="canvass">
         <svg width="1000" height="600" style='position:relative;z-index:1'>
-
+            <!-- g id="parentGraphic"-->
             {{#each items}}
                 {{#if isPolyline}}
                     <polyline points="{{svgPoints}}" style="{{style}}"/>
