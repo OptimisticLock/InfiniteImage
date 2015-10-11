@@ -57,7 +57,7 @@
 
 <template name='pencil'>
   {{#each allPencilLines}}
-    <polyline points="{{this}}" style="fill:none;stroke:black;stroke-width:3" />
+    <polyline points="{{svgPoints}}" style="{{style}}" />
   {{/each}}
   <polyline points="{{currentLine}}" style="fill:none;stroke:black;stroke-width:3" />
 </template>

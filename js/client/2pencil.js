@@ -11,7 +11,7 @@ Tools.Pencil = {
   },
 
   mouseUp: function(event, template) {
-    console.log("Pencil mouse up");
+    // console.log("Pencil mouse up");
 
     Session.set('isMousedown', false);
 
@@ -24,7 +24,7 @@ Tools.Pencil = {
     SVGCommands.insert({
       tool: 'Pencil',
       elem: 'polyline',
-      points: Session.get('pencil-current'),
+      svgPoints: Session.get('pencil-current'),
       style: 'fill:none;stroke:black;stroke-width:3',
       order: SVGCommands.find().count() + 1,
     });
@@ -33,7 +33,7 @@ Tools.Pencil = {
   },
 
   mouseDown: function(event, template) {
-    console.log("Pencil mouse down");
+    // console.log("Pencil mouse down");
     Session.set('isMousedown', true);
   },
 
@@ -61,9 +61,9 @@ Template.pencil.onCreated(function() {
 
 Template.pencil.helpers({
   allPencilLines: function() {
-    var pencilLines = allPencilLines.get();
-
-    return pencilLines;
+    return SVGCommands.find({
+      'tool': 'Pencil'
+    });
   },
   points: function() {
     return Session.get("polyline");
