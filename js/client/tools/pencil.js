@@ -20,7 +20,7 @@ Tools.Pencil = {
         allPencilLines.set(_aPl);
 
         Session.set('pencil-current', null);
-        // Session.set('currentDrawing', null);
+        Session.set('currentDrawing', null);
     },
 
     mouseDown: function (event, template) {
