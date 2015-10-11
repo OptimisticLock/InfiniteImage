@@ -1,4 +1,4 @@
-/*
+
 
 // TODO not DRY, but OK for n20,20 40,40 60,0 80,120 120,140 200,180 20, 20ow because palette will be refactored away soon
 
@@ -28,7 +28,7 @@ Template.polyline.helpers({
 
 
 
-Template.canvass.events({
+Template.oldCanvass.events({
     'click button': function () {
         // increment the counter when button is clicked
         Session.set('counter', Session.get('counter') + 1);
@@ -36,12 +36,12 @@ Template.canvass.events({
 
     'mouseup': function () {
         isMousedown = false;
-        console.log("mouseup!!!!!!");
+        console.log("mouseup...");
     },
 
     'mousedown': function () {
         isMousedown = true;
-        console.log("mousedown!!!!!!!");
+        console.log("mousedown....");
         var x = event.offsetX;
         var y = event.offsetY;
         var polyline = Session.get("polyline");
@@ -60,12 +60,14 @@ Template.canvass.events({
     'mousemove': function (event, template) {
         if (isMousedown) {
             count++;
-            console.log("mousedrag!!!!!!!" + count);
+            console.log("mousedrag....." + count);
 
             console.log(x, y);
             //             var circle2 = document.getElementById("circle2");
+            var x = event.offsetX;
+            var y = event.offsetY;
             var node = event.target;
-     / *       var clone = node.cloneNode(true);
+            var clone = node.cloneNode(true);
             clone.setAttribute("x", x);
             clone.setAttribute("y", y);
             clone.setAttribute("cx", x);
@@ -73,10 +75,10 @@ Template.canvass.events({
             var x = clone.getAttribute("x");
             console.log("Count:" + count);
 
-            node.parentNode.appendChild(clone); * /
+            node.parentNode.appendChild(clone);
         }
         else {
-            console.log("mousemove!!!");
+            console.log("mousemove...");
             var x = event.offsetX;
             var y = event.offsetY;
             Session.set("current", {x: x, y: y});
@@ -84,4 +86,3 @@ Template.canvass.events({
     }
 });
 
-*/
