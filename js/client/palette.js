@@ -57,6 +57,8 @@ Template.palette.events({
         console.log("click+");
         var scale = Session.get("scale");
         Session.set("scale", scale *1.5);
+
+
     },
 
     "click #minus": function() {
@@ -87,3 +89,5 @@ Template.registerHelper('activeLineWidth', function() {
 
   return Session.get('currentLineWidth');
 });
+
+//zoom: var z = svg.currentScale;
