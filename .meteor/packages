@@ -21,3 +21,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 reactive-var
 msavin:mongol
+aliencorp:colorbox
+risul:bootstrap-colorpicker
