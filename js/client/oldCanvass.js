@@ -1,5 +1,3 @@
-
-
 // TODO not DRY, but OK for n20,20 40,40 60,0 80,120 120,140 200,180 20, 20ow because palette will be refactored away soon
 
 var count = 0;
@@ -26,8 +24,7 @@ Template.oldCanvass.events({
         var y = event.offsetY;
         var polyline = Session.get("polyline");
 
-        if (polyline === undefined )
-        {
+        if (polyline === undefined) {
             polyline = "";
         }
         polyline = polyline + " " + x + "," + y;

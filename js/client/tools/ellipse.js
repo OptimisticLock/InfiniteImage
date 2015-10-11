@@ -17,20 +17,7 @@ Tools.Ellipse = {
 
     mouseDown: function (event, template) {
         console.log("Ellipse mouse down");
-        var x = event.offsetX;
-        var y = event.offsetY;
-
-        if (center === undefined) {
-            center = {x: x, y: y};
-        }
-
-        else {
-            var dx = x - center.x;
-            var dy = y - center.y;
-            r = dx * dx + dy * dy;
-        }
-
-        isDrawing = !isDrawing;
+        center = {x: event.offsetX, y: event.offsetY};
 
         var polyline = Session.get("polyline");
 

@@ -53,8 +53,9 @@ Template.canvass.helpers({
       return true;
     }
   },
-  isElipse: function() {
-    if(this.elem === 'circle'){
+
+  isEllipse: function() {
+    if(this.elem === 'ellipse'){
       return true;
     }
   }

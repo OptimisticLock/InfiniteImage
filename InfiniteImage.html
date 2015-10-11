@@ -56,11 +56,13 @@
 
           {{#each items}}
             {{#if isPolyline}}
-              <polyline points="{{svgPoints}}" style="{{style}}"/>
+                <polyline points="{{svgPoints}}" style="{{style}}"/>
             {{/if}}
-            {{#if isElipse}}
-              <!-- PUT SVG HERE! -->
+
+            {{#if isEllipse}}
+                <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
             {{/if}}
+
           {{/each}}
           {{> polyline }}
           {{> pencil}}
