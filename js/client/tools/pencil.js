@@ -44,20 +44,13 @@ Tools.Pencil = {
   mouseDragged: function(event, template) {
     var moveX, moveY;
 
-    if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
-      event.preventDefault();
-      moveX = event.originalEvent.touches[0].pageX;
-      moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
-    } else {
-      moveX = event.offsetX;
-      moveY = event.offsetY;
-    }
+    event.preventDefault();
 
     if(!Session.get('pencil-current')) {
-      Session.set('pencil-current', moveX + ',' + moveY);
+      Session.set('pencil-current', event.moveX + ',' + event.moveY);
     }
 
-    Session.set('pencil-current', Session.get('pencil-current') + " " + moveX + ',' + moveY);
+    Session.set('pencil-current', Session.get('pencil-current') + " " + event.moveX + ',' + event.moveY);
   }
 };
 
