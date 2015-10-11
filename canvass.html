@@ -1,20 +1,21 @@
 <template name="canvass">
     <div id="canvass" class="row">
-        <svg width="1000" height="1000" style='position:relative;z-index:1'
-             transform="translate(30, 40) rotate(45 50 50)">
-            <!-- g id="parentGraphic"-->
-            {{#each items}}
-                {{#if isPolyline}}
-                    <polyline points="{{svgPoints}}" style="{{style}}"/>
-                {{/if}}
+        <svg id="svg" width="1000" height="1000" style='position:relative;z-index:1'>
+            <g transform="scale({{scale}})">
+                <!-- g id="parentGraphic"-->
+                {{#each items}}
+                    {{#if isPolyline}}
+                        <polyline points="{{svgPoints}}" style="{{style}}"/>
+                    {{/if}}
 
-                {{#if isEllipse}}
-                    <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
-                {{/if}}
+                    {{#if isEllipse}}
+                        <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
+                    {{/if}}
 
-            {{/each}}
-            {{> polyline }}
-            {{> pencil}}
+                {{/each}}
+                {{> polyline }}
+                {{> pencil}}
+            </g>
         </svg>
     </div>
 </template>

@@ -1,5 +1,7 @@
 // TODO there should be plugin architecture allowing for 3rd party packages for specific tools
 
+Session.setDefault("scale", 1.);
+
 Template.palette.onRendered(function () {
     $('.colorPicker').colorpicker({
         // inline: true,
@@ -53,10 +55,14 @@ Template.palette.events({
 
     "click #plus": function() {
         console.log("click+");
+        var scale = Session.get("scale");
+        Session.set("scale", scale *1.5);
     },
 
     "click #minus": function() {
         console.log("click-");
+        var scale = Session.get("scale");
+        Session.set("scale", scale /1.5);
     },
 
 });

@@ -80,6 +80,10 @@ Template.canvass.helpers({
         }
     },
 
+    scale: function() {
+        return Session.get("scale")
+    }
+
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
