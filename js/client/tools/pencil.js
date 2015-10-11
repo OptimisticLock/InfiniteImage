@@ -19,14 +19,16 @@ Tools.Pencil = {
         _aPl.push(Session.get('pencil-current'));
         allPencilLines.set(_aPl);
 
-        Session.set('pencil-current', null);
-        Session.set('currentDrawing', null);
+        Tracker.nonreactive(function() {
+          Session.set('pencil-current', null);
+          Session.set('currentDrawing', null);
+        });
     },
 
     mouseDown: function (event, template) {
         // console.log("Pencil mouse down");
         Session.set('isMousedown', true);
-
+console.log("current cv", Session.get('CV'));
 
         SVGCommands.insert({
             CV: Session.get('CV'),
@@ -46,6 +48,8 @@ Tools.Pencil = {
     },
 
     mouseDragged: function (event, template) {
+      console.log('do i even')
+      console.log('what is my currentDrawing', Session.get('currentDrawing'))
         var moveX, moveY;
 
         if (event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
