@@ -52,6 +52,10 @@ Tools.Pencil = {
             moveY = event.offsetY;
         }
 
+        if(event.touchType === 'single') {
+          event.preventDefault();
+        }
+
         if (!Session.get('pencil-current')) {
             Session.set('pencil-current', moveX + ',' + moveY);
         }
