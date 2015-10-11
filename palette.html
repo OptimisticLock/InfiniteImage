@@ -1,45 +1,7 @@
 <template name="palette">
-    <div id="palette btn-group">
+    <div id="palette">
 
-        <!-- button id="toolPencil" class="btn btn-default tool">
-            <div class="glyphicon glyphicon-pencil"></div>
-            <div class="toolLabel">Pencil</div>
-        </button>
-
-        <button id="toolPolyline" class="btn btn-default tool">
-            <div class="glyphicon glyphicon-send"></div>
-            <div class="toolLabel">Polygon</div>
-        </button>
-
-        <button id="toolEllipse" class="btn btn-default tool">
-            <svg width="4em" height="4em">
-                <circle cx="20" cy="20" r="20" fill="currentColor"/>
-            </svg>
-            <div class="toolLabel">Ellipse</div>
-        </button -->
-
-        <button id="toolColorPicker" class="btn btn-default tool">
-            <div class='demo2' style="height:100px;width:100px;background-color:{{activeColor}}">
-            </div>
-        </button>
-
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                Size
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#" class='lineWidthChoice' linewidth='2'>Thin</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='4'>Medium</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='8'>Thick</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='16'>XL</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='32'>XXL</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='64'>XXXL</a></li>
-                <li><a href="#" class='lineWidthChoice' linewidth='128'>Jumbo</a></li>
-
-            </ul>
-        </div>
+        {{> lineSize }}
 
         <button id="clearBoard" class="btn btn-default tool">
             <div class="glyphicon glyphicon-erase"></div>
@@ -47,7 +9,48 @@
         </button>
 
         {{> colorPalette}}
+
+        <div class='colorPicker' style="background-color:{{activeColor}}">
+        </div>
+
     </div>
 
-
 </template>
+
+
+<template name="lineSize">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+            Size
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#" class='lineWidthChoice' linewidth='2'>Thin</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='4'>Medium</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='8'>Thick</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='16'>XL</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='32'>XXL</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='64'>XXXL</a></li>
+            <li><a href="#" class='lineWidthChoice' linewidth='128'>Jumbo</a></li>
+
+        </ul>
+    </div>
+</template>
+
+<!-- button id="toolPencil" class="btn btn-default tool">
+    <div class="glyphicon glyphicon-pencil"></div>
+    <div class="toolLabel">Pencil</div>
+</button>
+
+<button id="toolPolyline" class="btn btn-default tool">
+    <div class="glyphicon glyphicon-send"></div>
+    <div class="toolLabel">Polygon</div>
+</button>
+
+<button id="toolEllipse" class="btn btn-default tool">
+    <svg width="4em" height="4em">
+        <circle cx="20" cy="20" r="20" fill="currentColor"/>
+    </svg>
+    <div class="toolLabel">Ellipse</div>
+</button -->

@@ -1,11 +1,11 @@
 // TODO there should be plugin architecture allowing for 3rd party packages for specific tools
 
 Template.palette.onRendered(function () {
-    $('.demo2').colorpicker({
+    $('.colorPicker').colorpicker({
         // inline: true,
     });
 
-    $('.demo2').colorpicker().on('changeColor', function (event) {
+    $('.colorPicker').colorpicker().on('changeColor', function (event) {
         console.log(event.color.toHex())
         Session.set('colorChoice', event.color.toHex());
     });
@@ -33,8 +33,8 @@ Template.palette.events({
         Session.set('currentTool', 'Ellipse');
     },
 
-    'click .demo2': function (e, t) {
-        $('.demo2').colorpicker('show');
+    'click .colorPicker': function (e, t) {
+        $('.colorPicker').colorpicker('show');
     },
 
     'click #clearBoard': function (e, t) {

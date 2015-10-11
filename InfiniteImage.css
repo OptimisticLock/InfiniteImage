@@ -8,14 +8,14 @@
 }
 
 #palette {
-    background: gray;
+    background: lightgray;
     height: 9em;
     width: 1000px;
     padding: 0px;
 }
 
 .tool {
-    background: darkgray;
+    background: gray;
     margin:.2em;
     width: 10em;
 }
@@ -33,4 +33,9 @@
     margin:3px;
     color: aqua;
     border: solid black 1px;
+}
+
+.colorPicker {
+    width: 50px;
+    height: 50px;
 }
