@@ -15,15 +15,12 @@ Template.canvass.onCreated(function() {
 Template.canvass.events({
 
   'mouseup, touchend': function (event, template) {
-    // event.preventDefault();
-
     isMousedown = false;
     console.log("mouseup!!!!!!");
     template.CurrentTool.mouseUp(event, template);
   },
 
   'mousedown, touchstart': function (event, template) {
-    // event.preventDefault();
 
     isMousedown = true;
     console.log("mousedown!!!!!!!");
@@ -33,7 +30,14 @@ Template.canvass.events({
   },
 
   'mousemove, touchmove': function (event, template) {
-    // event.preventDefault();
+
+    if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
+      event.moveX = event.originalEvent.touches[0].pageX;
+      event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
+    } else {
+      event.moveX = event.offsetX;
+      event.moveY = event.offsetY;
+    }
 
     if (isMousedown) {
       template.CurrentTool.mouseDragged(event, template);
