@@ -4,9 +4,11 @@ Template.palette.events({
 
     'click #toolPolyline': function (event, template) {
        console.log ("111111111");
+       Session.set('currentTool', 'Polyline');
     },
 
     'click #toolPencil': function (event, template) {
         console.log ("22222222222");
+        Session.set('currentTool', 'Pencil');
     },
 });

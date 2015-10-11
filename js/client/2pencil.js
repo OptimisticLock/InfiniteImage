@@ -1,60 +1,78 @@
 
+var allPencilLines = new ReactiveVar([]);
+
 Tools.Pencil = {
-    toolSelected: function(canvass) {
-    },
+  toolSelected: function(canvass) {
+    canvass.style.cursor='crosshair';
+  },
 
-    toolUnselected: function(canvass) {
-        canvass.style.cursor="auto";
-    },
+  toolUnselected: function(canvass) {
+    canvass.style.cursor="auto";
+  },
 
-    mouseUp: function(event, template) {
-        console.log("Pencil mouse up");
-    },
+  mouseUp: function(event, template) {
+    console.log("Pencil mouse up");
 
-    mouseDown: function(event, template) {
-        console.log("Pencil mouse down");
- /*       var x = event.offsetX;
-        var y = event.offsetY;
-        var polyline = Session.get("polyline");
+    Session.set('isMousedown', false);
 
-        if (polyline === undefined )
-        {
-            polyline = "";
-        }
-        polyline = polyline + " " + x + "," + y;
+    var _aPl = allPencilLines.get();
 
-        Session.set("polyline", polyline);
-        Session.set("last", {x: x, y: y}); */
-    },
+    _aPl.push(Session.get('pencil-current'));
+    allPencilLines.set(_aPl);
 
-    mouseMoved: function(event, template) {
-        console.log("Polyline mouse moved");
-  /*      var x = event.offsetX;
-        var y = event.offsetY;
-        Session.set("current", {x: x, y: y}); */
-    },
 
-    mouseDragged: function(event, template) {
-        console.log("Pencil mouse dragged");
+    SVGCommands.insert({
+      tool: 'Pencil',
+      elem: 'polyline',
+      points: Session.get('pencil-current'),
+      style: 'fill:none;stroke:black;stroke-width:3',
+      order: SVGCommands.find().count() + 1,
+    });
+
+    Session.set('pencil-current', null);
+  },
+
+  mouseDown: function(event, template) {
+    console.log("Pencil mouse down");
+    Session.set('isMousedown', true);
+  },
+
+  mouseMoved: function(event, template) {
+
+  },
+
+  mouseDragged: function(event, template) {
+
+    if(!Session.get('pencil-current')) {
+      Session.set('pencil-current', event.offsetX + ',' + event.offsetY);
     }
+
+    Session.set('pencil-current', Session.get('pencil-current') + " " + event.offsetX + ',' + event.offsetY);
+  },
+  allPencilLines: function() {
+
+  }
 };
 
-//--------------------------------------------------------------------------
-Template.polyline.helpers({
-    points: function() {
-        return Session.get("polyline");
-//        return "20,20 40,40 60,0 80,120 120,140 200,180 20, 20";
-    },
+Template.pencil.onCreated(function() {
+  this.data = this.data || {};
+  this.allPencilLines = [];
+});
 
-    tentative: function() {
-        var last = Session.get("last");
-        var current = Session.get("current");
+Template.pencil.helpers({
+  allPencilLines: function() {
+    var pencilLines = allPencilLines.get();
 
-        // User has not clicked anywhere yet
-        if (last === undefined)
-            return {};
-        else
-            return {x1 : last.x, y1: last.y, x2: current.x, y2: current.y};
-    }
+    return pencilLines;
+  },
+  points: function() {
+    return Session.get("polyline");
+  },
+
+  currentLine: function() {
+    var current = Session.get('pencil-current');
+
+    return current;
+  }
 });
 

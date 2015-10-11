@@ -40,6 +40,7 @@
     <div id="canvass">
         <svg width="1000" height="600">
             {{> polyline }}
+            {{> pencil}}
             <!-- rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" / -->
             Sorry, your browser does not support inline SVG.
         </svg>
@@ -52,4 +53,11 @@
     <polyline points="{{points}}" style="fill:red;stroke:black;stroke-width:3"/>
     <line {{tentative}} style="stroke:black;stroke-width:2"/>
 
+</template>
+
+<template name='pencil'>
+  {{#each allPencilLines}}
+    <polyline points="{{this}}" style="fill:none;stroke:black;stroke-width:3" />
+  {{/each}}
+  <polyline points="{{currentLine}}" style="fill:none;stroke:black;stroke-width:3" />
 </template>
