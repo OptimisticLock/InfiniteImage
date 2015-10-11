@@ -3,8 +3,8 @@
     background: red;
 }
 
-#zcanvass {
-    background: green;
+#canvass {
+    cursor: crosshair;
 }
 
 #palette {
