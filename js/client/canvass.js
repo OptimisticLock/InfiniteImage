@@ -1,5 +1,5 @@
 
-Tools.CurrentTool = Tools.Polyline;
+CurrentTool = Tools.Polyline;
 
 
 var count = 0;
@@ -19,25 +19,25 @@ Template.canvass.events({
     'mouseup': function (event, template) {
         isMousedown = false;
         console.log("mouseup!!!!!!");
-        Tools.CurrentTool.mouseUp(event, template);
+        CurrentTool.mouseUp(event, template);
     },
 
     'mousedown': function (event, template) {
         isMousedown = true;
         console.log("mousedown!!!!!!!");
-        Tools.CurrentTool.mouseDown(event, template);
+        CurrentTool.mouseDown(event, template);
     },
 
     'mousemove': function (event, template) {
         if (isMousedown) {
             count++;
-            Tools.CurrentTool.mouseDragged(event, template);
+            CurrentTool.mouseDragged(event, template);
             console.log("mousedrag!!!!!!!" + count);
 
         }
         else {
             console.log("mousemove!!!");
-            Tools.CurrentTool.mouseMoved(event, template);
+            CurrentTool.mouseMoved(event, template);
         }
     }
 });

@@ -1,0 +1,12 @@
+// TODO there should be plugin architecture allowing for 3rd party packages for specific tools
+
+Template.palette.events({
+
+    'click #toolPolyline': function (event, template) {
+       console.log ("111111111");
+    },
+
+    'click #toolPencil': function (event, template) {
+        console.log ("22222222222");
+    },
+});
