@@ -1,16 +1,19 @@
 <template name="palette">
-    <div id="palette">
+    <div id="palette" class="row">
+        <div class="col-xs-1">
+            {{> lineSize }}
+        </div>
 
-        {{> lineSize }}
-
-        <button id="clearBoard" class="btn btn-default">
+        <button id="clearBoard" class="btn btn-default col-xs-1">
             <div class="glyphicon glyphicon-erase"></div>
             <div class="toolLabel">Clear All</div>
         </button>
 
-        {{> colorPalette}}
+        <div class="col-xs-5">
+            {{> colorPalette}}
+        </div>
 
-        <div class='colorPicker' style="background-color:{{activeColor}}">
+        <div class='colorPicker col-xs-1' style="background-color:{{activeColor}}">
         </div>
 
     </div>
