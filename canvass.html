@@ -1,0 +1,32 @@
+<template name="canvass">
+    <div id="canvass">
+        <svg width="1000" height="600" style='position:relative;z-index:1'
+             transform="translate(30, 40) rotate(45 50 50)">
+            <!-- g id="parentGraphic"-->
+            {{#each items}}
+                {{#if isPolyline}}
+                    <polyline points="{{svgPoints}}" style="{{style}}"/>
+                {{/if}}
+
+                {{#if isEllipse}}
+                    <ellipse cx="200" cy="80" rx="100" ry="50" style="{{style}}"/>
+                {{/if}}
+
+            {{/each}}
+            {{> polyline }}
+            {{> pencil}}
+        </svg>
+    </div>
+</template>
+
+
+<template name="polyline">
+    <polyline points="{{currPoints}}" style="fill:red;stroke:black;stroke-width:3"/>
+    <line {{tentative}} style="stroke:black;stroke-width:2"/>
+
+</template>
+
+<template name='pencil'>
+    <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:{{activeLineWidth}}"/>
+</template>
+
