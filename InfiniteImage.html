@@ -38,7 +38,14 @@
             </svg>
             <div class="toolLabel">Ellipse</div>
         </button>
+
+        <button id="toolColorPicker" class="btn btn-default tool">
+          <div class='demo2' style="height:100px;width:100px;background-color:{{activeColor}}">
+          </div>
+        </button>
     </div>
+
+
 </template>
 
 <template name="canvass">
@@ -67,5 +74,5 @@
   {{#each allPencilLines}}
     <polyline points="{{svgPoints}}" style="{{style}}" />
   {{/each}}
-  <polyline points="{{currentLine}}" style="fill:none;stroke:black;stroke-width:3" />
+  <polyline points="{{currentLine}}" style="fill:none;stroke:{{activeColor}};stroke-width:3" />
 </template>

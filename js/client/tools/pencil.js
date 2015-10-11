@@ -25,7 +25,7 @@ Tools.Pencil = {
       tool: 'Pencil',
       elem: 'polyline',
       svgPoints: Session.get('pencil-current'),
-      style: 'fill:none;stroke:black;stroke-width:3',
+      style: 'fill:none;stroke:' + Session.get('colorChoice') + ';stroke-width:3',
       order: SVGCommands.find().count() + 1,
     });
 
