@@ -5,12 +5,6 @@ var isMousedown = false;
 Template.canvass.onCreated(function () {
     var ctx = this;
 
-    var cv = getUrlParameter('cv');
-    console.log('cv', cv);
-
-    if(cv) {
-      Session.set('CV', cv);
-    }
 
     Session.set('currentTool', 'Pencil')
 
@@ -18,6 +12,15 @@ Template.canvass.onCreated(function () {
         // console.log(Session.get('currentTool'))
         ctx.CurrentTool = Tools[Session.get('currentTool')];
     });
+});
+
+Template.canvass.onRendered(function() {
+    var cv = getUrlParameter('cv');
+    console.log('cv', cv);
+
+    if(cv) {
+      Session.set('CV', cv);
+    }
 })
 
 Template.canvass.events({
