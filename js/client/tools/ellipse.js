@@ -1,3 +1,5 @@
+// Work in progress, presently unused
+
 Tools.Ellipse = {
     toolSelected: function
         (canvass) {

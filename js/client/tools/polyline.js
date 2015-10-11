@@ -1,3 +1,5 @@
+// Work in progress, presently unused
+
 Tools.Polyline = {
     toolSelected: function (canvass) {
         canvass.style.cursor = "crosshair";
