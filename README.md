@@ -11,3 +11,4 @@ zoomable (like Google Maps), but that's on the roadmap. Drawing tools other than
 pencils of various widths are work in progress and for that reason disabled.
 
 See demo at http://iii.meteor.com
+More about Infinite Image at http://devpost.com/software/infinite-image
