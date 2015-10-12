@@ -1,4 +1,8 @@
 
+.test {
+    font-size: 10px;
+}
+
 #canvass {
     cursor: crosshair;
 }

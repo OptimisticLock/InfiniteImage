@@ -28,7 +28,7 @@ Tools.Pencil = {
     mouseDown: function (event, template) {
         // console.log("Pencil mouse down");
         Session.set('isMousedown', true);
-console.log("current cv", Session.get('CV'));
+        console.log("current cv", Session.get('CV'));
 
         SVGCommands.insert({
             CV: Session.get('CV'),
@@ -48,19 +48,10 @@ console.log("current cv", Session.get('CV'));
     },
 
     mouseDragged: function (event, template) {
-      console.log('do i even')
-      console.log('what is my currentDrawing', Session.get('currentDrawing'))
+    //  console.log('do i even')
+   //   console.log('what is my currentDrawing', Session.get('currentDrawing'))
         var moveX, moveY;
 
-        if (event.type === 'touchmove') {
-            var touch = event.originalEvent.touches[0];
-            console.log("$$$$$$$$$$touch", touch.radiusX, touch.radiusY, touch.force);
-        }
-
-        if (event.type === 'touchmove' && event.originalEvent.touches.length >= 2)
-        {
-            console.log("scroll*******", event);
-        }
 
         if (event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
             event.preventDefault();

@@ -42,6 +42,21 @@ Template.canvass.events({
 
     'mousemove, touchmove': function (event, template) {
 
+        if (event.type === 'touchmove') {
+            var touch = event.originalEvent.touches[0];
+           // console.log("$$$$$$$$$$touch", touch.radiusX, touch.radiusY, touch.force);
+            //          event.preventDefault();
+            //          event.originalEvent.preventDefault();
+        }
+
+        if (event.type === 'touchmove' && event.originalEvent.touches.length >= 2)
+        {
+            console.log("scroll*******", event);
+                   event.preventDefault();
+                    event.originalEvent.preventDefault();
+
+        }
+
         if(event.type === 'touchmove' && event.originalEvent.touches.length === 1) {
           event.moveX = event.originalEvent.touches[0].pageX;
           event.moveY = event.originalEvent.touches[0].pageY - event.currentTarget.offsetTop;
