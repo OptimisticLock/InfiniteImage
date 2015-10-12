@@ -115,3 +115,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
+//var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+//document.body.appendChild(svg);
+//var z = svg.currentScale;
+//+document.body.removeChild(svg);
