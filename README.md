@@ -4,7 +4,7 @@ Infinite Image
 
 This is a collaborative SVG image editor. Think a classroom full of kids,
 or a distributed group of people creating art together. Created for Meteor Hackathon
-10/11/2015.
+10/11/2015 together with a developer I met at the hackathon. 
 
 As its name suggests, the editor is intended to be on an infininite canvass and highly
 zoomable (like Google Maps), but that's on the roadmap. Drawing tools other than
